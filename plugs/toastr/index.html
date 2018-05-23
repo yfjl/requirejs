@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>toastr</title>
+	<link href="./css/toastr.css" rel="stylesheet">
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/toastr.js"></script>
+
+<style type="text/css">
+input{
+	width: 100px;
+	height: 50px;
+	color: #fff;
+}
+	#success{
+		background: green;
+	}
+	#warning{
+		background: yellow;
+	}
+	#error{
+		background: red;
+	}
+	#info{
+		background: blue;
+	}
+</style>
+</head>
+<body>
+	<input type="button" id="success"  value="success" name="">
+	<input type="button" id="warning" value="warning" name="">
+	<input type="button" id="error" value="error" name="">
+	<input type="button" id="info" value="info" name="">
+
+<script type="text/javascript">
+	$("#success").click(function(){
+		toastr.success("成功提示")
+	})
+	$("#warning").click(function(){
+		toastr.warning("警告提示")
+	})
+	$("#error").click(function(){
+		toastr.error("错误提示")
+	})
+	$("#info").click(function(){
+		toastr.info("一般提示")
+	})
+</script>
+</body>
+</html>
