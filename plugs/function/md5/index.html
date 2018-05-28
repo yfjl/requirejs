@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>md5密码加密</title>
+<style type="text/css">
+	.a{
+		color: red;
+	}
+</style>
+
+</head>
+<body>
+
+<h2>6种加密方式</h2>
+
+
+
+
+<div>
+<input type="text" id="user" name="">
+<input type="password" id="pwd" name="">
+<input type="button" id="btn" value="加密" name="">
+
+</div>
+
+<h3>hex_md5加密</h3>
+<div class="a hex_md5"></div>
+
+<h3>b64_md5加密</h3>
+<div class="a b64_md5"></div>
+
+
+<h3>str_md5加密</h3>
+<div class="a str_md5"></div>
+
+
+<h3>hex_hmac_md5加密</h3>
+<div class="a hex_hmac_md5"></div>
+
+<h3>b64_hmac_md5加密</h3>
+<div class="a b64_hmac_md5"></div>
+
+
+<h3>str_hmac_md5加密</h3>
+<div class="a str_hmac_md5"></div>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+
+<script type="text/javascript" src="md5.js"></script>
+
+<script type="text/javascript">
+	$("#btn").click(function(){
+		var user = $("#user").val()
+		var pwd = $("#pwd").val()
+		// var md5 = b64_md5($("#pwd").val())
+		$(".hex_md5").html(hex_md5(user))
+		$(".b64_md5").html(b64_md5(user))
+		$(".str_md5").html(str_md5(user))
+
+		$(".hex_hmac_md5").html(hex_hmac_md5(user,pwd))
+		$(".b64_hmac_md5").html(b64_hmac_md5(user,pwd))
+		$(".str_hmac_md5").html(str_hmac_md5(user,pwd))
+
+
+	})
+</script>
+
+</body>
+</html>

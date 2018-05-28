@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Handlebars</title>
+        	<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/handlebars.js/4.0.11/handlebars.js"></script>
+
+
+
+    </head>
+    
+    <body>
+    <h2>单个数据渲染</h2>
+    <div id="person_info"></div>
+
+
+    <h2>自定义循环渲染</h2>
+    <div id = "uls">
+    	<ul>
+    		
+    	</ul>
+    </div>
+    <h2>内置循环渲染</h2>
+    <div id = "uls2">
+    	<ul>
+    		
+    	</ul>
+    </div>
+
+
+<!-- 普通模板 -->
+   <script type="text/template" id="myTemplate">
+        <div >
+            <div class = "person">
+                <div>姓名：{{name}}</div>    
+                <div>出生地：{{home}}</div>
+                <div>职业：{{job}}</div>
+            </div>
+        </div>
+
+     </script>
+
+<!-- 循环模板 -->
+<script type="text/template" id="myTemplate1">
+	{{#programme}}
+
+	<li>{{language}}</li>
+
+	{{/programme}}
+</script>
+
+<!-- 内置循环模板 -->
+<script type="text/template" id="myTemplate2">
+	{{#each programme}}
+
+	<li>{{this}}</li>
+
+	{{/each}}
+</script>
+    </body>
+    
+    <script>
+        var data ={
+            name:'约翰莫里森11',
+            home:'美国',
+            job:'摔跤手'
+        };
+        
+        var tmpl = $('#myTemplate').html();
+        var func = Handlebars.compile(tmpl);        
+        var result = func(data);
+        $('#person_info').html(result);
+
+
+         var data1 ={
+			  programme: [
+			    {language: "JavaScript"},
+			    {language: "HTML"},
+			    {language: "CSS"}
+			  ]
+			}
+        
+        var tmpl1 = $('#myTemplate1').html();
+        var func1 = Handlebars.compile(tmpl1);        
+        var result1 = func1(data1);
+        $('#uls ul').html(result1);
+
+
+
+         var data2 ={
+			  programme: ["张华",'李四','QQ','哈哈']
+			}
+        var tmpl2 = $('#myTemplate2').html();
+        var func2 = Handlebars.compile(tmpl2);        
+        var result2 = func2(data2);
+        $('#uls2 ul').html(result2);
+
+
+    </script>
+    
+</html>

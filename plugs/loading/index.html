@@ -10,8 +10,12 @@
  }
   #preview {
     background: #ccc;
-    height: 100vh;
+    height: 200vh;
     border-radius: 10px;
+  }
+  .spinner{
+    position: fixed !important;
+    top: 100px;
   }
   </style>
 </head>
@@ -19,6 +23,8 @@
 
 <div id="preview"></div>
 
+
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
 <script src="spin.js"></script>
 <script>
    var opts = {            
@@ -36,11 +42,12 @@
             hwaccel: false, //spinner 是否启用硬件加速及高速旋转            
             className: 'spinner', // spinner css 样式名称
             zIndex: 2e9, // spinner的z轴 (默认是2000000000)
-            top: 'auto', // spinner 相对父容器Top定位 单位 px
+            top: '0px', // spinner 相对父容器Top定位 单位 px
             left: 'auto'// spinner 相对父容器Left定位 单位 px
         };
 
-  new Spinner(opts).spin(document.getElementById('preview'));
+console.log(new Spinner())
+  new Spinner().spin(document.getElementById('preview'));
 </script>
 </body>
 </html>
